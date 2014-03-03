@@ -2,6 +2,7 @@
 #include "stdlib.h"
 #include "string.h"
 #include "unistd.h"
+#include "time.h"
 
 void keygenCommand(char *argv[], int argc);
 void cryptCommand(char *argv[], int argc);

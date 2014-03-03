@@ -7,7 +7,7 @@ set len6=101
 set len7=193
 
 
-		set srcdir=~csci531/public/cs531/hw4
+		set srcdir=/home/feng/WorkPlace/CSCI531HW/HW4/Cryptanalysis/file
 
 		
 
