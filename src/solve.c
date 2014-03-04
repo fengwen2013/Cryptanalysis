@@ -20,21 +20,16 @@ void formatFloat(char s[]){
 	}
 }
 
-void printCount(int max_t, FILE *iFile){
+void printCount(int max_t, char file[], int lenOfFile){
 	int t = 1;
 	char base = 0;
 	char test = 0;
 	int count = 0;
-	int lenOfFile = 0;
-	fseek(iFile, 0, SEEK_END);
-	lenOfFile = ftell(iFile);
 	int i = 0;
 	for(t = 1; t <= max_t; t++){
 		for(i = 0, count = 0; i < lenOfFile - t; i++){
-			fseek(iFile, i, SEEK_SET);
-			fread(&base, sizeof(char), 1, iFile);
-			fseek(iFile, i + t, SEEK_SET);
-			fread(&test, sizeof(char), 1, iFile);
+			base = file[i];
+			test = file[i + t];
 			if(base == test && base <= 'z' && base >= 'a'){
 				count++;
 			}
@@ -75,13 +70,12 @@ void printFrequency(int count[], FILE *iFile, int *len){
 void solve(int max_t, FILE *iFile){
 	char *base = NULL;
 	char *test = NULL;
+	char *file = NULL;
 	int len = 4;
 	int lenOfFile = 0;
-	fseek(iFile, 0, SEEK_END);
-	lenOfFile = ftell(iFile);
-	fseek(iFile, 0, SEEK_SET);
 	int i = 0;
 	int j = 0;
+	int k = 0;
 	int eFlag = 1;
 	int count[26];
 	int L = 0;
@@ -90,18 +84,27 @@ void solve(int max_t, FILE *iFile){
 	double kp = 0.0658;
 	fprintf(stdout, "Kasiski Method\n==============\n");
 	char sFloat[20];
+	
+	fseek(iFile, 0, SEEK_END);
+	lenOfFile = ftell(iFile);
+	fseek(iFile, 0, SEEK_SET);
+	
+	file = (char *)malloc(sizeof(char) * (lenOfFile));
+	fread(file, sizeof(char), lenOfFile, iFile);
 	while(1){
 		eFlag = 1;
 		base = (char *)malloc(sizeof(char) * (len + 1));
 		test = (char *)malloc(sizeof(char) * (len + 1));
 		for(i = 0; i < lenOfFile - len;i++){
-			fseek(iFile, i, SEEK_SET);
-			fread(base, sizeof(char), len, iFile);
+			for(k = 0; k < len; k++){
+				base[k] = file[i + k];
+			}
 			base[len] = 0;
 			if(isAlphabetArray(base) == 0){
 				for(j = i + 1; j <= lenOfFile - len; j++){
-					fseek(iFile, j, SEEK_SET);
-					fread(test, sizeof(char), len, iFile);
+					for(k = 0; k < len; k++){
+						test[k] = file[j + k];
+					}
 					test[len] = 0;
 					if(strcmp(base, test) == 0){
 						fprintf(stdout, "len=%d, i=%d, j=%d, j-i=%d, %s\n", len, i, j, j - i, test);
@@ -138,7 +141,7 @@ void solve(int max_t, FILE *iFile){
 	}
 	
 	fprintf(stdout, "\nAuto-correlation Method\n=======================\n");
-	printCount(max_t, iFile);
+	printCount(max_t, file, lenOfFile);
 	
 	
 }
