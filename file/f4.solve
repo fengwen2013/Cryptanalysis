@@ -1,0 +1,133 @@
+Kasiski Method
+==============
+len=4, i=283, j=3199, j-i=2916, bdth
+len=4, i=295, j=4183, j-i=3888, akjk
+len=4, i=296, j=4184, j-i=3888, kjkc
+len=4, i=297, j=4185, j-i=3888, jkci
+len=4, i=298, j=4186, j-i=3888, kciw
+len=4, i=299, j=387, j-i=88, ciwp
+len=4, i=299, j=4187, j-i=3888, ciwp
+len=4, i=300, j=4188, j-i=3888, iwpa
+len=4, i=339, j=2769, j-i=2430, xsqh
+len=4, i=340, j=2770, j-i=2430, sqhk
+len=4, i=341, j=2771, j-i=2430, qhks
+len=4, i=342, j=2772, j-i=2430, hksa
+len=4, i=343, j=2773, j-i=2430, ksau
+len=4, i=344, j=2774, j-i=2430, saun
+len=4, i=387, j=4187, j-i=3800, ciwp
+len=4, i=439, j=493, j-i=54, fefo
+len=4, i=695, j=3071, j-i=2376, njgz
+len=4, i=704, j=3620, j-i=2916, zzgn
+len=4, i=711, j=3141, j-i=2430, zruc
+len=4, i=712, j=3142, j-i=2430, rucz
+len=4, i=867, j=3729, j-i=2862, hfpa
+len=4, i=868, j=3730, j-i=2862, fpax
+len=4, i=869, j=3731, j-i=2862, paxk
+len=4, i=870, j=3732, j-i=2862, axks
+len=4, i=1174, j=1498, j-i=324, lypk
+len=4, i=1447, j=1609, j-i=162, tgki
+len=4, i=2555, j=2825, j-i=270, ikjl
+len=4, i=2556, j=2826, j-i=270, kjlw
+len=4, i=2557, j=2827, j-i=270, jlwb
+len=4, i=2562, j=2832, j-i=270, fmoj
+len=4, i=2563, j=2833, j-i=270, mojf
+len=4, i=2568, j=2838, j-i=270, sknh
+len=5, i=295, j=4183, j-i=3888, akjkc
+len=5, i=296, j=4184, j-i=3888, kjkci
+len=5, i=297, j=4185, j-i=3888, jkciw
+len=5, i=298, j=4186, j-i=3888, kciwp
+len=5, i=299, j=4187, j-i=3888, ciwpa
+len=5, i=339, j=2769, j-i=2430, xsqhk
+len=5, i=340, j=2770, j-i=2430, sqhks
+len=5, i=341, j=2771, j-i=2430, qhksa
+len=5, i=342, j=2772, j-i=2430, hksau
+len=5, i=343, j=2773, j-i=2430, ksaun
+len=5, i=711, j=3141, j-i=2430, zrucz
+len=5, i=867, j=3729, j-i=2862, hfpax
+len=5, i=868, j=3730, j-i=2862, fpaxk
+len=5, i=869, j=3731, j-i=2862, paxks
+len=5, i=2555, j=2825, j-i=270, ikjlw
+len=5, i=2556, j=2826, j-i=270, kjlwb
+len=5, i=2562, j=2832, j-i=270, fmojf
+len=6, i=295, j=4183, j-i=3888, akjkci
+len=6, i=296, j=4184, j-i=3888, kjkciw
+len=6, i=297, j=4185, j-i=3888, jkciwp
+len=6, i=298, j=4186, j-i=3888, kciwpa
+len=6, i=339, j=2769, j-i=2430, xsqhks
+len=6, i=340, j=2770, j-i=2430, sqhksa
+len=6, i=341, j=2771, j-i=2430, qhksau
+len=6, i=342, j=2772, j-i=2430, hksaun
+len=6, i=867, j=3729, j-i=2862, hfpaxk
+len=6, i=868, j=3730, j-i=2862, fpaxks
+len=6, i=2555, j=2825, j-i=270, ikjlwb
+len=7, i=295, j=4183, j-i=3888, akjkciw
+len=7, i=296, j=4184, j-i=3888, kjkciwp
+len=7, i=297, j=4185, j-i=3888, jkciwpa
+len=7, i=339, j=2769, j-i=2430, xsqhksa
+len=7, i=340, j=2770, j-i=2430, sqhksau
+len=7, i=341, j=2771, j-i=2430, qhksaun
+len=7, i=867, j=3729, j-i=2862, hfpaxks
+len=8, i=295, j=4183, j-i=3888, akjkciwp
+len=8, i=296, j=4184, j-i=3888, kjkciwpa
+len=8, i=339, j=2769, j-i=2430, xsqhksau
+len=8, i=340, j=2770, j-i=2430, sqhksaun
+len=9, i=295, j=4183, j-i=3888, akjkciwpa
+len=9, i=339, j=2769, j-i=2430, xsqhksaun
+len=10, no more matches
+
+Average Index of Coincidence
+============================
+L=3277
+f('a')=169
+f('b')=133
+f('c')=118
+f('d')=92
+f('e')=163
+f('f')=103
+f('g')=127
+f('h')=105
+f('i')=126
+f('j')=142
+f('k')=156
+f('l')=133
+f('m')=108
+f('n')=113
+f('o')=113
+f('p')=135
+f('q')=105
+f('r')=127
+f('s')=140
+f('t')=117
+f('u')=129
+f('v')=114
+f('w')=150
+f('x')=116
+f('y')=131
+f('z')=112
+IC=0.03902267
+t=1, E(IC)=0.0658
+t=2, E(IC)=0.052126597
+t=3, E(IC)=0.047568796
+t=4, E(IC)=0.045289895
+t=5, E(IC)=0.043922555
+t=6, E(IC)=0.043010994
+t=7, E(IC)=0.04235988
+t=8, E(IC)=0.041871544
+t=9, E(IC)=0.041491727
+t=10, E(IC)=0.041187874
+t=11, E(IC)=0.040939267
+
+Auto-correlation Method
+=======================
+t=1, count=100
+t=2, count=109
+t=3, count=84
+t=4, count=92
+t=5, count=97
+t=6, count=76
+t=7, count=87
+t=8, count=98
+t=9, count=107
+t=10, count=109
+t=11, count=100
+

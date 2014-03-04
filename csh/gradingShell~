@@ -9,8 +9,6 @@ set len7=193
 
 		set srcdir=/home/feng/WorkPlace/CSCI531HW/HW4/Cryptanalysis/file
 
-		
-
 		./hw4 keygen -t=$len1 > x1.keys
 		./hw4 keygen -t=$len2 > x2.keys
 		./hw4 keygen -t=$len3 > x3.keys
@@ -21,9 +19,7 @@ set len7=193
 
 		foreach f (1 2 3 4 5 6 7)
 			echo "==> checking x$f.keys"
-			$srcdir/checkKeys x$f.keys
 		end
-		
 		/bin/rm -f x?.keys
 		
 		foreach f (1 2 3 4 5)
@@ -31,6 +27,54 @@ set len7=193
 			echo "==> $srcdir/f$f.invkeys"
 			diff f$f.invkeys $srcdir/f$f.invkeys
 		end
-		
-		/bin/rm -f f?.invkeys
-		
+                
+        foreach f (1 2 3 4 5)
+        	./hw4 crypt -k=$srcdir/f$f.keys $srcdir/f$f.pt > f$f.ct
+            echo "==> $srcdir/f$f.ct"
+            diff f$f.ct $srcdir/f$f.ct
+        end
+		/bin/rm -f f?.ct
+              
+       	foreach f (1 2 3 4 5)
+        	cat $srcdir/f$f.ct | ./hw4 crypt -k=$srcdir/f$f.invkeys > f$f.pt
+        	echo "==> $srcdir/f$f.pt"
+        	diff f$f.pt $srcdir/f$f.pt
+        end		
+        /bin/rm -f f?.pt
+
+
+
+		./hw4 keygen -t=3 > f1.keys
+		./hw4 keygen -t=7 > f2.keys
+		./hw4 keygen -t=8 > f3.keys
+		./hw4 keygen -t=2 > f4.keys
+		./hw4 keygen -t=4 > f5.keys
+
+        foreach f (1 2 3 4 5)
+			./hw4 invkey f$f.keys > f$f.invkeys
+            cat $srcdir/f$f.pt | ./hw4 crypt -k=f$f.keys > f$f.ct
+            ./hw4 crypt -k=f$f.invkeys f$f.ct > f$f.pt
+            echo "==> $srcdir/f$f.pt"
+            diff f$f.pt $srcdir/f$f.pt
+        end     
+/bin/rm -f f?.pt f?.ct f?.keys f?.invkeys
+	
+		./hw4 histo -t=5 -i=1 $srcdir/f1.ct > f1.histo.1
+        ./hw4 histo -t=6 -i=3 $srcdir/f2.ct > f2.histo.1
+        ./hw4 histo -t=3 -i=3 $srcdir/f3.ct > f3.histo.1
+        ./hw4 histo -t=4 -i=2 $srcdir/f4.ct > f4.histo.1
+        ./hw4 histo -t=7 -i=2 $srcdir/f5.ct > f5.histo.1
+        cat $srcdir/f1.ct | ./hw4 histo -t=7 -i=7 > f1.histo.2
+        cat $srcdir/f2.ct | ./hw4 histo -t=8 -i=5 > f2.histo.2
+        cat $srcdir/f3.ct | ./hw4 histo -t=4 -i=4 > f3.histo.2
+        cat $srcdir/f4.ct | ./hw4 histo -t=5 -i=3 > f4.histo.2
+        cat $srcdir/f5.ct | ./hw4 histo -t=6 -i=1 > f5.histo.2
+
+		foreach f (1 2 3 4 5)
+			foreach x (1 2)
+				echo "==> $srcdir/f$f.histo.$x "
+				diff -C 2 $srcdir/f$f.histo.$x f$f.histo.$x
+			end
+		end	
+	
+/bin/rm -f f?.histo.?	

@@ -17,3 +17,4 @@ void histo(int period, int which, FILE *iFile);
 void solve(int max_t, FILE *iFile);
 FILE* openFile(char *fileName);
 int optionCheck(char *option, char *check);
+int isValidKeyfile(FILE *keyfile, char *a[], int max_period);
