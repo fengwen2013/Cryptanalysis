@@ -75,9 +75,9 @@ invkey: A key file in the format identical to that of the input key file.
 histo : A histogram of ciphertext character frequencies. The output is sorted according to the frequencies of the ciphertext characters in descending order. If there is a tie, letters earlier will be outputed in the alphabet first. Firsty (L) is printed out which is the total number of lowercase English ciphertext character (L). Then for the most frequently occurred ciphertext character, print the number of occurrences followed by the corresponding frequency in percentages.
  
 solve : For this command, the output has 3 sections. 
-			- The first section is related to the method of Kasiski. 
-			- The second section is related to the average index of coincidence. 
-			- The third section is related to the auto-correlation method. 
+		- The first section is related to the method of Kasiski. 
+		- The second section is related to the average index of coincidence. 
+		- The third section is related to the auto-correlation method. 
 		The output of each section with a banner indicating the method that is being used.
 		
 		For the Kasiski method, begin with a string length of 4 and outputs all ciphertext matches. (A string must only contain 	letters in the alphabet.) The output for this section will stop when no more matches can be found. 
@@ -115,7 +115,7 @@ According to Kasiski examination which involves looking for strings of character
 
 How to recover the plaintext:
 
-After determining the period, I wrote a program which runs histo command for responding ciphertext file with(command option i = from 1 to 5) then partitions the results into 5 group. For each partitions, determine the plaintext according to frequency analysis and similarity with plain English words.
+After determining the period, I wrote a program which runs histo command for responding ciphertext file with(command option i = from 1 to 5) then partitions the results into 5 groups. For each partitions, determine the plaintext according to frequency analysis and similarity with plain English words.
 
 FOr mystery2.ct
 Period: 11
@@ -137,7 +137,7 @@ Similarly, the distances we can see here are 4433, 7040, 6798, 1980, 1254, 1419,
 
 How to recover the plaintext:
 
-After determining the period, I wrote a program which runs histo command for responding ciphertext file with(command option i = from 1 to 11) then partitions the results into 11 group. For each partitions, determine the plaintext according to frequency analysis and similarity with plain English words.
+After determining the period, I wrote a program which runs histo command for responding ciphertext file with(command option i = from 1 to 11) then partitions the results into 11 groups. For each partitions, determine the plaintext according to frequency analysis and similarity with plain English words.
 
 
 ********************************
