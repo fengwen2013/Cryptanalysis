@@ -1,0 +1,117 @@
+Cryptanalysis(hw4) Version 1.0 03/5/2014
+
+********************************
+GENERAL INFORMATION
+********************************
+
+
+STRUCTURE:
+--------------------------------
+hw4.c    : Handle commands and invoke corresponding functions.
+hw4.h    : Include all header files and function declarations.
+keygen.c : Deal with keygen command.
+crypt.c  : Deal with crypt command.
+invkey.c : Deal with invkey command.
+histo.c  : Deal with histo command.
+solve.c  : Deal with solve command.
+makefile : Complie the program.
+
+mystery1.invkeys: Inverkey file for mystery1.ct.
+mystery2.invkeys: Inverkey file for mystery2.ct.
+m1.report: Result of running solve command for mystery1.ct.
+m2.report: Result of running solve command for mystery2.ct.
+
+
+RUNING ENVIRONMNET: 
+--------------------------------
+Linux, Unix
+
+
+HOW TO COMPILE:
+--------------------------------
+Makefile is included, simply enters:
+    make hw4(or make)
+an executable named hw4 is created.
+
+
+
+********************************
+GUIDELINE
+********************************
+
+
+THE COMMANDLINE SYNTAX:
+--------------------------------
+    hw4 keygen -t=period
+    hw4 crypt -k=keyfile [file]
+    hw4 invkey keyfile
+    hw4 histo -t=period -i=which [file]
+    hw4 solve -l=max_t file
+
+
+THE MEANING of THE COMMANDLINES:
+--------------------------------
+
+keygen: Generate a keyfile with a specified period to be used by the full Vigenère cipher (with polyalphabetic substitution).
+ 
+crypt : Encrypts (or decrypts) an input ASCII text file with the keys specified in keyfile. The output is an ASCII text file  encrypted (or decrypted) using a full Vigenère cipher (with polyalphabetic substitution).
+ 
+invkey: Create an inverse permutation key file from keyfile.
+ 
+histo : Produce a histogram of ciphertext character frequencies assuming the ciphertext is produced by a polyalphabetic substitution cipher with period equals period. which specifies a one-based index for the alphabets. The output must be sorted according to the frequencies of the ciphertext characters in descending order. Please do not consider any characters that is not a lowercase English character (i.e., between 'a' and 'z', inclusive).
+ 
+solve : Apply the Method of Kasiski and use Index of Coincidence in order to determine the period of a ciphertext encrypted by a full Vigenère cipher (with polyalphabetic substitution).
+
+
+THE OUTPUT FOR THE COMMANDLINES:
+--------------------------------
+
+keygen: A key file in the format suitable to be used by the full Vigenère cipher (with polyalphabetic substitution). The number of lines in the output must be exactly equal to the specified period. Each line is exactly 26 characters long (lowercase English characters) and is terminated with a '\n' character.
+ 
+crypt : An ASCII text file.
+ 
+invkey: A key file in the format identical to that of the input key file.
+ 
+histo : A histogram of ciphertext character frequencies. The output is sorted according to the frequencies of the ciphertext characters in descending order. If there is a tie, letters earlier will be outputed in the alphabet first. Firsty (L) is printed out which is the total number of lowercase English ciphertext character (L). Then for the most frequently occurred ciphertext character, print the number of occurrences followed by the corresponding frequency in percentages.
+ 
+solve : For this command, the output has 3 sections. 
+					- The first section is related to the method of Kasiski. 
+					- The second section is related to the average index of coincidence. 
+					- The third section is related to the auto-correlation method. 
+		The output of each section with a banner indicating the method that is being used.
+		
+		For the Kasiski method, begin with a string length of 4 and outputs all ciphertext matches. (A string must only contain 	letters in the alphabet.) The output for this section will stop when no more matches can be found. 
+				 
+		For the average index of coincidence, compute the frequencies of the ciphertext characters and the index of coincidence. The expected index of coincidences are tabulated for cycle lengths from 1 to max_t. Finally print out the total number of lowercase English ciphertext character (L), the number of occurrences of each of the lowercase English ciphertext characters, the computed IC, and the expected ICs. 
+		
+		For the auto-correlation method, for each possible period T (from 1 to max_t), count the total number of occurrences where the i th ciphertext character is identical to the (i+T) th ciphertext character, for i from 1 to L-T, where L is the length of the ciphertext and both ciphertext characters must be lowercase English characters. 
+
+
+
+********************************
+CRYPTANALYSIS REPORT
+********************************
+
+
+The results of runing solve command for mystery1.ct and mystery2.ct are stored separartely on two different files, m1.report is for mystery1.ct and m2.report is for mystery2.ct. Additionally, mystery1.invkeys and mystery2.invkeys are the keyfiles for these two ciphertext files.
+
+For mystery1.ct
+Period: 5
+How to determine the period:
+How to recover the plaintext:
+
+
+FOr mystery2.ct
+Period: 11
+How to determine the period:
+How to recover the plaintext:
+
+
+
+********************************
+CONTACT IMFORMATION:
+********************************
+
+
+Email:	 fengwen@usc.edu
+Website: www-scf.usc.edu/~fengwen 
