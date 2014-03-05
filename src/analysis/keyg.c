@@ -8,11 +8,17 @@ void returnHisto(int s[], int len, int total, char t[], int n){
 	int i = 0;
 	int j = 0;
 	int k = 0;
-	char plainF[5][26] = {"etoinrahslumcdyfvgwpbxkqjz",
-						  "etoniarshclyfudbmwpgvqxkjz",
-						  "etnioarhsuldcmywfpgbxvkzqj",
-						  "etaoisrnhclumdpygfwbvxqkzj",
-						  "etioashnrclmuypdgwfbvqkxzj"};
+	char plainF[11][26] = {"etoinsarlhdumpbfcywgvkxqjz",
+						  "eiatnosdrlchmgpwuyfbvjkzqx",
+						  "etnoairshcldmuyfbpwgvxkjzq",
+						  "etasinorlhcdpumbwgyfvxkqjz",
+						  "etaonisrhmdcluypwgbfvjxzkq",
+						  "etaoisrnhcdumpwlfygbvxzqkj",
+						  "etnaorsihldcmfpuyvwgbkqxzj",
+						  "eitoasnrhdclupfmygbwvkxqzj",
+						  "etosnarihldmcuyfpbgwvkxqjz",
+						  "etarisnohlcumdygpwfbvqkxjz",
+						  "etisoanrhdlcympgbufwkxvqjz",};
 	for(i = 0; i < len; i++){
 		for(j = 0, buf = s[0], k = 0; j < len; j++){
 			if(buf < s[j]){
