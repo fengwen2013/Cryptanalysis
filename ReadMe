@@ -75,9 +75,9 @@ invkey: A key file in the format identical to that of the input key file.
 histo : A histogram of ciphertext character frequencies. The output is sorted according to the frequencies of the ciphertext characters in descending order. If there is a tie, letters earlier will be outputed in the alphabet first. Firsty (L) is printed out which is the total number of lowercase English ciphertext character (L). Then for the most frequently occurred ciphertext character, print the number of occurrences followed by the corresponding frequency in percentages.
  
 solve : For this command, the output has 3 sections. 
-					- The first section is related to the method of Kasiski. 
-					- The second section is related to the average index of coincidence. 
-					- The third section is related to the auto-correlation method. 
+			- The first section is related to the method of Kasiski. 
+			- The second section is related to the average index of coincidence. 
+			- The third section is related to the auto-correlation method. 
 		The output of each section with a banner indicating the method that is being used.
 		
 		For the Kasiski method, begin with a string length of 4 and outputs all ciphertext matches. (A string must only contain 	letters in the alphabet.) The output for this section will stop when no more matches can be found. 
@@ -97,15 +97,47 @@ The results of runing solve command for mystery1.ct and mystery2.ct are stored s
 
 For mystery1.ct
 Period: 5
-How to determine the period:
+How to determine the period: 
+
+For first several lines in the report,
+	
+	len=4, i=4, j=49, j-i=45, eycg
+	len=4, i=4, j=69, j-i=65, eycg
+	len=4, i=4, j=49, j-i=45, eycg
+	len=4, i=4, j=69, j-i=65, eycg
+	len=4, i=4, j=459, j-i=455, eycg
+	len=4, i=4, j=1909, j-i=1905, eycg
+	len=4, i=4, j=4409, j-i=4405, eycg
+	len=4, i=4, j=4619, j-i=4615, eycg
+	len=4, i=4, j=6304, j-i=6300, eycg
+	
+According to Kasiski examination which involves looking for strings of characters that are repeated in the ciphertext, the distances between consecutive occurrences of the strings are likely to be multiples of the length of the keyword. The distances we can see here are 45, 65, 455, 1905, 4405, 4615, and 6300, so we can take the greatest common divisor, which is 5 in this case, of all the distances. 5 is probably the period of this ciphertext file. Then we can take a look at the output of Auto-correlation Method, it is easy to find out that if T is a multiple of 5, the counts are noticeably higher. Thus we can safely draw a conclusion that the period is 5. 
+
 How to recover the plaintext:
 
+After determining the period, I wrote a program which runs histo command for responding ciphertext file with(command option i = from 1 to 5) then partitions the results into 5 group. For each partitions, determine the plaintext according to frequency analysis and similarity with plain English words.
 
 FOr mystery2.ct
 Period: 11
 How to determine the period:
+
+Let's look at the first several lines for strings with length 9,
+
+	len=9, i=12, j=4445, j-i=4433, lrgckdpyu
+	len=9, i=12, j=7052, j-i=7040, lrgckdpyu
+	len=9, i=1101, j=7899, j-i=6798, xrxlvvuql
+	len=9, i=1533, j=3513, j-i=1980, ldgnqkmjo
+	len=9, i=1534, j=3514, j-i=1980, dgnqkmjob
+	len=9, i=1648, j=2902, j-i=1254, mbnjbfrxi
+	len=9, i=1907, j=3326, j-i=1419, qmnimkbmo
+	len=9, i=2565, j=3951, j-i=1386, huauifmud
+	len=9, i=2970, j=7128, j-i=4158, psfdlnrfq
+	
+Similarly, the distances we can see here are 4433, 7040, 6798, 1980, 1254, 1419, 1386, 4158, so we can take the greatest common divisor, which is 11 in this case, of all the distances. 11 is probably the period of this ciphertext file. Then we can take a look at the output of Auto-correlation Method, it is easy to find out that if T is a multiple of 11, the counts are noticeably higher. Thus we can safely draw a conclusion that the period is 11. 
+
 How to recover the plaintext:
 
+After determining the period, I wrote a program which runs histo command for responding ciphertext file with(command option i = from 1 to 11) then partitions the results into 11 group. For each partitions, determine the plaintext according to frequency analysis and similarity with plain English words.
 
 
 ********************************
